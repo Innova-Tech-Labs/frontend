@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
+import './css/uploadImage.css';
+
 
 const UploadImage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -33,9 +35,11 @@ const UploadImage = () => {
 
   return (
     <div>
+      <div className="upload-container">
       <h2>Upload Image</h2>
       <input type="file" onChange={handleFileChange} />
       <button onClick={handleUpload}>Upload</button>
+      </div>
     </div>
   );
 };
