@@ -1,25 +1,20 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const DropdownList = () => {
   const [selectedList, setSelectedList] = useState(null);
-  const [lists] = useState([
-    { id: 1, title: 'Default', items: [
-      "Traffic Cone",
-      "Fire Hydrant",
-      "Feather",
-      "Ladybug",
-      "Ant",
-      "Flower",
-      "Bench",
-      "Mushroom",
-      "Public Sculpture",
-      "Flag (national, state, or local organization)",
-      "Recycling Bin"
-    ] },
-    { id: 2, title: 'List 2', items: ['Apple', 'Banana', 'Orange'] },
-    { id: 3, title: 'List 3', items: ['Cat', 'Dog', 'Bird'] }
-  ]);
+  const [lists, setLists] = useState([]);
   const [newItem, setNewItem] = useState('');
+
+  const fetchLists = async () => {
+    try {
+      let response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/lists`)
+      setLists(response.json().lists);
+    } catch (error) {
+      console.error('Error retrieving lists:', error);
+    }
+  }
+  fetchLists();
   
   const handleSelectList = (list) => {
     setSelectedList(list);

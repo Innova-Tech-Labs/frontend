@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import UploadImage from './UploadImage';
-import './css/content.css';
 import DropdownList from './DropdownList';
-
-
+import './css/content.css';
 
 function Content(props) {
 
