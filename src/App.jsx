@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { withAuth0 } from '@auth0/auth0-react';
 import AuthButtons from './Auth/AuthButtons';
@@ -10,10 +11,7 @@ import ScavengerHuntWelcome from './ScavengerHuntWelcome';
 
 
 function App({ auth0 }) {
- const handleAddList = () => {
-   console.log('Adding a new list');
- };
-
+ 
 
  return (
    <div className="app-container">
@@ -24,7 +22,6 @@ function App({ auth0 }) {
      </div>
      {auth0.isAuthenticated && (
        <div className="button-container">
-         <button onClick={handleAddList}>Add New List</button>
          <div className="dropdown">
            <button className="dropbtn">Dropdown Button</button>
            <NewList />

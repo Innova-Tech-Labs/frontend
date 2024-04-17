@@ -1,7 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import './css/uploadImage.css';
-
 
 const UploadImage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -20,7 +18,7 @@ const UploadImage = () => {
       const formData = new FormData();
       formData.append('file', selectedFile);
 
-      const response = await axios.post('http://your-backend-url/upload', formData, {
+      const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -35,11 +33,9 @@ const UploadImage = () => {
 
   return (
     <div>
-      <div className="upload-container">
       <h2>Upload Image</h2>
       <input type="file" onChange={handleFileChange} />
       <button onClick={handleUpload}>Upload</button>
-      </div>
     </div>
   );
 };

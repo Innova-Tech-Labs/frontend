@@ -13,9 +13,9 @@ class SendFile extends React.Component {
   handleUpload = async () => {
     try {
       const formData = new FormData();
-      formData.append('file', this.state.file);
+      formData.append('./newImage', this.state.file);
 
-      const response = await axios.post(`${VITE_SERVER_URL}/upload`, formData, {
+      const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
