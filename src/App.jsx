@@ -3,15 +3,13 @@ import PropTypes from 'prop-types';
 import { withAuth0 } from '@auth0/auth0-react';
 import AuthButtons from './Auth/AuthButtons';
 import Profile from './Profile';
-import Tasks from './Tasks';
-import NewList from './NewList';
+import Content from './Content';
 import './css/app.css';
 import './css/newList.css';
-import ScavengerHuntWelcome from './ScavengerHuntWelcome';
+
 
 
 function App({ auth0 }) {
- 
 
  return (
    <div className="app-container">
@@ -21,19 +19,9 @@ function App({ auth0 }) {
        <AuthButtons />
      </div>
      {auth0.isAuthenticated && (
-       <div className="button-container">
-         <div className="dropdown">
-           <button className="dropbtn">Dropdown Button</button>
-           <NewList />
-         </div>
-       </div>
-     )}
-     {auth0.isAuthenticated && (
        <>
          <Profile />
-         <Tasks />
-         <NewList />
-         <ScavengerHuntWelcome />
+         <Content />
        </>
      )}
    </div>
