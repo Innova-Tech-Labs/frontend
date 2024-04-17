@@ -1,26 +1,23 @@
 .welcome-message {
-    font-size: 18px;
-    line-height: 1.6;
-    font-family: 'Times New Roman', Times, serif; /* Using a vintage font */
-    width: 600px;
-    height: auto;
-    margin: 0 auto; /* Center the paragraph horizontally */
-  }
-  
-  .welcome-container {
-    padding: 20px;
-    color: #f9f9f9;
-    border-radius: 10px;
- 
-    width: 600px;
-    position: absolute;
-    top: 30%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Center the container */
-      /* Set background color with transparency */
-  background-color: rgba(156, 123, 6, 0.9); /* Adjust the last value (alpha) to change transparency */
-  /* Add drop shadow effect */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adjust the last value (alpha) to change opacity of shadow */
-  /* Specify other styles for the login container */
-  }
-  
+  font-size: 18px;
+  line-height: 1.6;
+  font-family: 'Times New Roman', Times, serif; /* Using a vintage font */
+  width: 600px;
+  height: auto;
+  margin: 0 auto; /* Center the paragraph horizontally */
+}
+ .welcome-container {
+  padding: 20px;
+  color: #f9f9f9;
+  border-radius: 10px;
+  width: 600px;
+  position: absolute;
+  top: 30%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the container */
+    /* Set background color with transparency */
+background-color: rgba(156, 123, 6, 0.9); /* Adjust the last value (alpha) to change transparency */
+/* Add drop shadow effect */
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adjust the last value (alpha) to change opacity of shadow */
+/* Specify other styles for the login container */
+}
