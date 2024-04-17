@@ -1,5 +1,10 @@
 h1 {
     font-size: 64pt;
     color: white;
-    
-}
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    height: 100vh; /* Adjust the height to fill the viewport */
+    margin: 0; /* Remove default margin */
+  }
+  
