@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import axios from 'axios';
 
 const backend = {
@@ -13,14 +14,22 @@ const backend = {
     }
   },
 
-  async uploadPic() {
+  async uploadPic(selectedFile) {
     try {
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+
       const URL = `${import.meta.env.VITE_SERVER_URL}/upload`;
-      console.log(`Uploading Pic to ${URL}`);
-      let response = await axios.post(URL);
-      console.log('Server Response:', response);
+      console.log('Posting to', URL);
+      const response = await axios.post(URL, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+
+      console.log('File uploaded:', response.data);
     } catch (error) {
-      console.error('Error retrieving lists:', error);
+      console.error('Error uploading file:', error);
     }
   }
 };
