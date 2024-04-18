@@ -8,7 +8,7 @@ const backend = {
       console.log(`Retrieving Lists from ${URL}`);
       let response = await axios.get(URL);
       console.log('Response:', response.data);
-      return [{ title: 'Test List', items: ['Test Item 1', 'Test Item 2'] }];
+      return [{ title: 'Test List', items: [{ name: 'Test Item 1', imagePath: '' }, { name: 'Test Item 2', imagePath: '' }] }];
     } catch (error) {
       console.error('Error retrieving lists:', error);
     }

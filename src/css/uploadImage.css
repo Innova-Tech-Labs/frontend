@@ -1,0 +1,16 @@
+.upload-container {
+  /* Set background color with transparency */
+  background-color: rgba(34, 213, 183, 0.5); /* Adjust the last value (alpha) to change transparency */
+  /* Add drop shadow effect */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adjust the last value (alpha) to change opacity of shadow */
+  /* Specify other styles for the login container */
+  padding: 30px;
+  border-radius: 10px;
+  /* Position the login container at the top-left corner */
+  position: absolute;
+  top: 200px;
+  left: 20px;
+  /* Set width and height */
+  width: 180px;
+  height: 100px;
+ }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Backend from './ServerRequests';
+import './css/uploadImage.css';
 
 const UploadImage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
