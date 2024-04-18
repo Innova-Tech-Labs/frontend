@@ -19,7 +19,7 @@ const backend = {
       const formData = new FormData();
       formData.append('file', selectedFile);
 
-      const URL = `${import.meta.env.VITE_SERVER_URL}/upload`;
+      const URL = `${import.meta.env.VITE_SERVER_URL}/photos/upload`;
       console.log('Posting to', URL);
       const response = await axios.post(URL, formData, {
         headers: {
