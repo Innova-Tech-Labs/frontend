@@ -15,18 +15,19 @@ function Content(props) {
   const toggleAddList = () => {
    if (showAddList) {
      setShowAddList(false);
-     console.log('Modal is off')
    } else {
      setShowAddList(true);
-     console.log('Modal is on')
    }
   }
+
+  const [selectedList, setSelectedList] = useState(null);
+  const [description, setDescription] = useState(null);
 
   return (
     <div>
       <Welcome showModal={showWelcome} handleClose={closeWelcome} />
-      <UploadImage />
-      <DropdownList />
+      <UploadImage setDescription={setDescription} />
+      <DropdownList selectedList={selectedList} setSelectedList={setSelectedList} description={description} />
       <button onClick={toggleAddList}>Add New List</button>
       <AddList showModal={showAddList} handleClose={toggleAddList} />
     </div>

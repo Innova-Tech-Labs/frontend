@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Backend from './ServerRequests';
 import './css/uploadImage.css';
+import ItemCheckoff from './ItemCheckoff';
 
-const UploadImage = () => {
+const UploadImage = ({ setDescription }) => {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [showCheckoff, setShowCheckoff] = useState(false);
+  const [checkoffItems, setCheckoffItems] = useState([]);
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -18,12 +21,13 @@ const UploadImage = () => {
 
     async function uploadPic() {
       try {
-        await Backend.uploadPic(selectedFile);
+        const response = await Backend.uploadPic(selectedFile);
+        setDescription(response.description);
       } catch (error) {
         console.error('Failed to upload pic:', error);
       }
     }
-
+    
     uploadPic();
     
   };
@@ -35,6 +39,7 @@ const UploadImage = () => {
         <input type="file" onChange={handleFileChange} />
         <button onClick={handleUpload}>Upload</button>
       </div>
+      {showCheckoff && <ItemCheckoff selectedFile={selectedFile} setCheckoffItems={setCheckoffItems} />}
     </div>
   );
 };

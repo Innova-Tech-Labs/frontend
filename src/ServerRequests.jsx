@@ -7,8 +7,8 @@ const backend = {
       const URL = `${import.meta.env.VITE_SERVER_URL}/lists`;
       console.log(`Retrieving Lists from ${URL}`);
       let response = await axios.get(URL);
-      console.log('Response:', response.data);
-      return [{ title: 'Test List', items: [{ name: 'Test Item 1', imagePath: '' }, { name: 'Test Item 2', imagePath: '' }] }];
+      console.log('Response List:', response.data);
+      return response.data;
     } catch (error) {
       console.error('Error retrieving lists:', error);
     }
@@ -27,7 +27,8 @@ const backend = {
         }
       });
 
-      console.log('File uploaded:', response.data);
+      console.log('File uploaded, response:', response.data);
+      return response.data
     } catch (error) {
       console.error('Error uploading file:', error);
     }
