@@ -3,7 +3,6 @@ import AuthButtons from './Auth/AuthButtons';
 import Profile from './Profile';
 import Content from './Content';
 import './css/app.css';
-import Tasks from './Tasks';
 
 function App(props) {
   return (
@@ -16,7 +15,14 @@ function App(props) {
         <>
           <Profile />
           <Content />
-          <Tasks />
+        </>
+      )}
+      {!props.auth0.isAuthenticated && (
+        <>
+          <div className="front-page-container">
+            <h1>Welcome to the Front Page</h1>
+            <p>Please Sign In</p>
+          </div>
         </>
       )}
     </div>

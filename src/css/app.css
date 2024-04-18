@@ -1,33 +1,40 @@
-.app-container {
+/* Apply background image to html, body */
+html, body {
+  /* Set default margin and padding to 0 */
+  margin: 0;
+  padding: 0;
+  /* Set body to fill the entire viewport */
+  width: 100%;
+  height: 100%;
   /* Set background image */
-  background-image: url('../images/map.jpg');
-  background-position: top left;
-  /* Make the background image cover the entire container */
+  background-image: url('../images/entrance.jpg'); /* Corrected path */
   background-size: cover;
-  /* Specify other styles for the container */
-  width: 100vw; /* Full width of the viewport */
-  height: 100vh; /* Full height of the viewport */
-  /* Center the content horizontally and vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
   position: fixed;
-
-}
-
-.login-container {
-  /* Set background color with transparency */
-background-color: rgba(255, 255, 255, 0.5); /* Adjust the last value (alpha) to change transparency */
-/* Add drop shadow effect */
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adjust the last value (alpha) to change opacity of shadow */
-/* Specify other styles for the login container */
-padding: 20px;
-border-radius: 10px;
-/* Position the login container at the top-left corner */
-position: absolute;
-top: 20px;
-left: 20px;
-/* Set width and height */
-width: 300px;
-height: 100px;
-}
+ }
+ 
+ 
+ .background-image {
+  /* Add your background image URL */
+  background-image: url('../images/map2.jpg'); /* Corrected path */
+  /* Set background size, position, and repeat as needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Set dimensions and any other styles */
+  width: 100%;
+  height: 100%;
+ }
+ .logged-in-background {
+  background-color: red; /* Fallback color */
+  background-image: url('../images/map2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  }

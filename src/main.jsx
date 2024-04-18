@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { Auth0Provider } from "@auth0/auth0-react";
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 // once you sign up for an Auth0 account, they will provide you with the domain and clientId
