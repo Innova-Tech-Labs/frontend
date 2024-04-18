@@ -8,19 +8,18 @@ const ListModal = ({ showModal, handleClose }) => {
   const [numItems, setNumItems] = useState(5);
   const [listItems, setListItems] = useState(Array.from({ length: numItems }, () => ''));
 
-  console.log('Modal:', showModal);
   const handleNumItemsChange = (e) => {
     setNumItems(parseInt(e.target.value));
-    setListItems(Array.from({ length: parseInt(e.target.value) }, () => ''));
+    setListItems(Array.from({ length: parseInt(e.target.value) }, () => ({ name: '' })));
   };
 
   const addList = async (newList) => {
-    try {
-      const listObj = { title: title, items: newList };
+    // try {
+      const listObj = { title: title, items: newList.map((str) => ({ name: str, imagePath: '' })) };
       await axios.post(`${import.meta.env.VITE_SERVER_URL}/lists`, listObj);
-    } catch (error) {
-      console.error('Error saving new list:', error);
-    }
+    // } catch (error) {
+    //   console.error('Error saving new list:', error);
+    // }
   };
 
   const handleSaveChanges = () => {

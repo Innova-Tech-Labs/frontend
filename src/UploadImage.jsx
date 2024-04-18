@@ -4,7 +4,7 @@ import Backend from './ServerRequests';
 import './css/uploadImage.css';
 import ItemCheckoff from './ItemCheckoff';
 
-const UploadImage = () => {
+const UploadImage = ({ setDescription }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [showCheckoff, setShowCheckoff] = useState(false);
   const [checkoffItems, setCheckoffItems] = useState([]);
@@ -21,12 +21,13 @@ const UploadImage = () => {
 
     async function uploadPic() {
       try {
-        await Backend.uploadPic(selectedFile);
+        const response = await Backend.uploadPic(selectedFile);
+        setDescription(response.description);
       } catch (error) {
         console.error('Failed to upload pic:', error);
       }
     }
-
+    
     uploadPic();
     
   };
