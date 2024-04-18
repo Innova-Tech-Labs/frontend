@@ -8,7 +8,7 @@ function App(props) {
   return (
     <div className="app-container">
       <div className="login-container">
-        <h2>Login or Logout with one component</h2>
+      
         <AuthButtons />
       </div>
       {props.auth0.isAuthenticated && (
