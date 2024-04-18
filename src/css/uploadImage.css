@@ -12,5 +12,6 @@
   right: 100px;
   /* Set width and height */
   width: 280px;
-  height: 200px;
+  height: auto;
+  align-items: center;
  }

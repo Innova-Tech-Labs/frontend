@@ -1,12 +1,16 @@
 h2 {
-  top: 50px;
+  margin: 50px 50px;
+  color: white;
+  text-align: ;
 }
 .tasks-container {
-  margin: 20px;
-  width: 200px; /* Adjust the width as needed */
+  margin: 70px 50px;
+  width: auto; /* Adjust the width as needed */
   height: auto;
+  color: white;
+  padding: 2dvb;
   /* Set background color with transparency */
-  background-color: rgba(255, 255, 255, 0.5); /* Adjust the last value (alpha) to change transparency */
+  background-color: rgba(18, 9, 142, 0.5); /* Adjust the last value (alpha) to change transparency */
   /* Add drop shadow effect */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adjust the last value (alpha) to change opacity of shadow */
   /* Specify other styles for the tasks container */
@@ -17,4 +21,5 @@ h2 {
   flex-direction: column;
   align-items: flex-start; /* Align items to the left */
   border-radius: 10px; /* Round the corners */
+  
 }
