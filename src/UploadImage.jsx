@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Backend from './ServerRequests';
 import './css/uploadImage.css';
+import ItemCheckoff from './ItemCheckoff';
 
 const UploadImage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [showCheckoff, setShowCheckoff] = useState(false);
+  const [checkoffItems, setCheckoffItems] = useState([]);
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -35,6 +38,7 @@ const UploadImage = () => {
         <input type="file" onChange={handleFileChange} />
         <button onClick={handleUpload}>Upload</button>
       </div>
+      {showCheckoff && <ItemCheckoff selectedFile={selectedFile} setCheckoffItems={setCheckoffItems} />}
     </div>
   );
 };
