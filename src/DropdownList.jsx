@@ -1,69 +1,69 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Backend from './ServerRequests.jsx';
+import './css/dropdown-list.css';
 
 const DropdownList = () => {
+  const [refreshLists, setRefreshLists] = useState(true);
   const [selectedList, setSelectedList] = useState(null);
   const [lists, setLists] = useState([]);
-  const [newItem, setNewItem] = useState('');
 
-  const fetchLists = async () => {
-    try {
-      let response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/lists`)
-      setLists(response.json().lists);
-    } catch (error) {
-      console.error('Error retrieving lists:', error);
+  useEffect(() => {
+    // Fetch lists when component mounts or refreshLists changes
+    async function fetchLists() {
+      try {
+        let response = await Backend.fetchLists();
+        setLists(response);
+      } catch (error) {
+        console.error('Failed to fetch data:', error);
+      }
     }
-  }
-  fetchLists();
-  
+
+    if (refreshLists) {
+      setRefreshLists(false);
+      fetchLists();
+    }
+  }, [refreshLists]); // Only re-run effect if refreshLists changes
+
   const handleSelectList = (list) => {
     setSelectedList(list);
   };
 
   const handleDeleteItem = (itemIndex) => {
+    if (!selectedList) return;
+
     const updatedItems = selectedList.items.filter((item, index) => index !== itemIndex);
     setSelectedList({ ...selectedList, items: updatedItems });
   };
 
-  const handleAddItem = () => {
-    if (newItem.trim() !== '') {
-      const updatedItems = [...selectedList.items, newItem.trim()];
-      setSelectedList({ ...selectedList, items: updatedItems });
-      setNewItem('');
-    }
-  };
+  useEffect(() => {
+    // Log selectedList when it changes
+    console.log('Selected List:', selectedList);
+  }, [selectedList]); // Only re-run effect if selectedList changes
 
   return (
     <div>
       <h2>Dropdown List</h2>
       <div>
-        <select onChange={(e) => handleSelectList(lists.find(list => list.id === parseInt(e.target.value)))}>
+        <select onChange={(e) => handleSelectList(lists.find(list => list.title === e.target.value))}>
           <option value="">Select a list...</option>
           {lists.map(list => (
-            <option key={list.id} value={list.id}>{list.title}</option>
+            <option key={list.id} value={list.title}>{list.title}</option>
           ))}
         </select>
       </div>
       {selectedList && (
-        <div>
+        <div className="tasks-container">
           <h3>{selectedList.title}</h3>
-          <ul>
+          <ul className="task-list">
             {selectedList.items.map((item, index) => (
               <li key={index}>
-                {item}
                 <button onClick={() => handleDeleteItem(index)}>Delete</button>
+                <img src={item.imagePath} />
+                {item.name}
               </li>
             ))}
           </ul>
-          <div>
-            <input
-              type="text"
-              value={newItem}
-              onChange={(e) => setNewItem(e.target.value)}
-              placeholder="Add new item..."
-            />
-            <button onClick={handleAddItem}>Add</button>
-          </div>
         </div>
       )}
     </div>

@@ -1,6 +1,6 @@
 
 function Profile() {
-  return <div>Hello</div>
+  return null;
 }
 
 export default Profile

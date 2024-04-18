@@ -1,0 +1,48 @@
+/* tasks.css */
+.tasks-container {
+  margin: 20px;
+  width: 200px; /* Adjust the width as needed */
+  height: auto;
+  /* Set background color with transparency */
+  background-color: rgba(255, 255, 255, 0.5); /* Adjust the last value (alpha) to change transparency */
+  /* Add drop shadow effect */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adjust the last value (alpha) to change opacity of shadow */
+  /* Specify other styles for the tasks container */
+  position: fixed;
+  left: 0;
+  top: 400px; /* Move down by 400px */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left */
+  border-radius: 10px; /* Round the corners */
+}
+
+.tasks-container h2 {
+  margin-bottom: 10px;
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.task-list li input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.task-list li.completed span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+/* Add this rule to set the image size */
+.task-list li img {
+  width: 50px;
+  height: auto; /* Maintain aspect ratio */
+}
