@@ -71,7 +71,7 @@ const DropdownList = ({ selectedList, setSelectedList, description }) => {
             {selectedList.items.map((item, index) => (
               <li key={index}>
                 <button onClick={() => handleDeleteItem(index)}>Delete</button>
-                <img className="minipi" src={item.imagePath} />
+                <img className="minipi" src={'/images/ant.jpg'} />
                 {item.name}
               </li>
             ))}
