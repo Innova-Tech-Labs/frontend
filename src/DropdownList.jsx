@@ -3,9 +3,8 @@ import axios from 'axios';
 import Backend from './ServerRequests.jsx';
 import './css/dropdown-list.css';
 
-const DropdownList = () => {
+const DropdownList = ({ selectedList, setSelectedList, description }) => {
   const [refreshLists, setRefreshLists] = useState(true);
-  const [selectedList, setSelectedList] = useState(null);
   const [lists, setLists] = useState([]);
 
   useEffect(() => {
@@ -41,6 +40,19 @@ const DropdownList = () => {
     console.log('Selected List:', selectedList);
   }, [selectedList]); // Only re-run effect if selectedList changes
 
+  if (description && selectedList) {
+    let descriptionStr = description;
+    let keywords = descriptionStr.replace(/[^\w\s]/g, '').replace(/\d+/g, '').trim().replace(/\s+/g, ' ').split(' ');
+    for (let item of selectedList.items) {
+      for (let keyword of keywords) {
+        if (item.name.split(' ')[0].toLowerCase() === keyword.toLowerCase()) {
+          item.imagePath = './src/images/checkmark.jpg';
+          console.log('It worked!!')
+        }
+      }
+    }
+  }
+
   return (
     <div>
       <h2>Dropdown List</h2>
@@ -59,7 +71,7 @@ const DropdownList = () => {
             {selectedList.items.map((item, index) => (
               <li key={index}>
                 <button onClick={() => handleDeleteItem(index)}>Delete</button>
-                <img src={item.imagePath} />
+                <img className="minipi" src={item.imagePath} />
                 {item.name}
               </li>
             ))}
