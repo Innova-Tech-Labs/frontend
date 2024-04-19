@@ -46,7 +46,7 @@ const DropdownList = ({ selectedList, setSelectedList, description }) => {
     for (let item of selectedList.items) {
       for (let keyword of keywords) {
         if (item.name.split(' ')[0].toLowerCase() === keyword.toLowerCase()) {
-          item.imagePath = './src/images/checkmark.jpg';
+          item.imagePath = '/images/checkmark.jpg';
           console.log('It worked!!')
         }
       }
